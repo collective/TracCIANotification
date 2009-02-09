@@ -31,7 +31,8 @@ Subversion Location is written by Erik Rose and based on jhammel's [http://trac-
 == Version History ==
 
  1.0.1::
-  * No longer keeps the Browse Source tab from highlighting properly. Thanks to Jeremie Allard for the patch!
-  * Removed egg dependency on Genshi, which we really don't require.
+  * The Browse Source tab now highlights properly. Thanks to Jeremie Allard for the original patch.
+  * Added egg dependency on Trac, which this of course imports from.
+  * Fleshed out other egg metadata a bit.
  1.0::
   Initial release

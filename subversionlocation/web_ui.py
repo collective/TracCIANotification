@@ -2,10 +2,19 @@
 
 import re
 
+from genshi.builder import tag
 from trac.core import *
 from trac.config import Option
 from trac.web import IRequestFilter
 from trac.web.chrome import add_ctxtnav
+
+def prepend_ctxtnav(req, elm_or_label, href, title=None):
+    """Prepend an entry to the current page's ctxtnav bar.
+    
+    add_ctxtnav(), sadly, always appends to the right side of the (right-aligned by default) context nav, changing the onscreen locations of the links people are already used to.
+    """
+    elm = tag.a(elm_or_label, href=href, title=title)
+    req.chrome.setdefault('ctxtnav', []).insert(0, elm)
 
 class BrowserLinkAdder(Component):
     implements(IRequestFilter)
@@ -26,6 +35,6 @@ class BrowserLinkAdder(Component):
     def post_process_request(self, req, template, data, content_type):
         """Stick the Subversion Location link in the contextual nav when applicable."""
         match = self.pattern.match(req.path_info)
-        if match:  # TODO: perhaps test handler instead
-            add_ctxtnav(req, 'Subversion Location', href=self.url(match.group(1)), title="This location in the Subversion repository")
+        if match:
+            prepend_ctxtnav(req, 'Subversion Location', self.url(match.group(1)), title="This location in the Subversion repository")
         return template, data, content_type
