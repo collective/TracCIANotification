@@ -20,12 +20,12 @@ class BrowserLinkAdder(Component):
     ### IRequestFilter methods
     
     def pre_process_request(self, req, handler):
+        """Do nothing."""
+        return handler
+    
+    def post_process_request(self, req, template, data, content_type):
         """Stick the Subversion Location link in the contextual nav when applicable."""
         match = self.pattern.match(req.path_info)
         if match:  # TODO: perhaps test handler instead
             add_ctxtnav(req, 'Subversion Location', href=self.url(match.group(1)), title="This location in the Subversion repository")
-        return handler
-    
-    def post_process_request(self, req, template, data, content_type):
-        """Do nothing."""
         return template, data, content_type
