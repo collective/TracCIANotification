@@ -19,8 +19,5 @@ setup(
     keywords='trac plugin svn subversion',
     packages=find_packages(exclude=['*.tests*']),
     install_requires=['Trac>=0.11', 'Genshi>=0.5'],
-    entry_points = """
-    [trac.plugins]
-    subversionlocation = subversionlocation
-    """,
-    )
+    entry_points = {'trac.plugins': ['subversionlocation = subversionlocation']}
+)
