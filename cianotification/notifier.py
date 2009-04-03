@@ -37,8 +37,8 @@ class CiaNotifier(Component):
     ### ITicketChangeListener methods
     
     def ticket_created(self, ticket):
-        if cia_project is not None and cia_server is not None:
-            c = MessageSender(project=cia_project, server=cia_server)
+        if self.cia_project is not None and self.cia_server is not None:
+            c = MessageSender(project=self.cia_project, server=self.cia_server)
             c(ticket.id, ticket['reporter'], "[%s] %s" % (ticket['component'], ticket['summary']))
 
     def ticket_changed(self, ticket, comment, author, old_values):
