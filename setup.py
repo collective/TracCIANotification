@@ -1,11 +1,11 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='TracSubversionLocation',
-    version='1.0.1',
+    name='TracCiaNotification',
+    version='1.0',
     author='Erik Rose',
     author_email='ErikRose@psu.edu',
-    url='http://trac-hacks.org/wiki/SubversionLocationPlugin',
+    url='http://trac-hacks.org/wiki/CiaNotificationPlugin',
     classifiers = [
         'Framework :: Trac',
         'Development Status :: 5 - Production/Stable',
@@ -14,10 +14,10 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
     ],
-    description='Provide links to the actual URLs of Subversion-dwelling items',
+    description='Notify the CIA IRC bot of new tickets.',
     license='GPL',
-    keywords='trac plugin svn subversion',
+    keywords='trac plugin irc cia',
     packages=find_packages(exclude=['*.tests*']),
-    install_requires=['Trac>=0.11', 'Genshi>=0.5'],
-    entry_points = {'trac.plugins': ['subversionlocation = subversionlocation']}
+    install_requires=['Trac>=0.11'],
+    entry_points = {'trac.plugins': ['cianotification = cianotification']}
 )
