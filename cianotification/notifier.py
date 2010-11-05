@@ -15,7 +15,7 @@ class MessageSender(object):
         self.server = xmlrpclib.ServerProxy(server)
 
     def message(self, ticket, author, message):
-        ticket = " #%s" % ticket
+        #ticket = " #%s" % ticket
         generator = "<generator><name>CIA Trac plugin</name><version>0.2</version></generator>"
         source = "<source><project>%s</project><module>%s</module></source>" % \
                     (self.project, self.module)

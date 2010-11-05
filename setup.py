@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='TracCiaNotification',
-    version='1.0',
+    version='1.1',
     author='Erik Rose',
     author_email='ErikRose@psu.edu',
     url='http://trac-hacks.org/wiki/CiaNotificationPlugin',
