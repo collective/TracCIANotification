@@ -7,7 +7,7 @@ CIA Notfication
     Installation
 
         Follow the normal egg installation procedures:
-        http://trac.edgewall.org/wiki/TracPlugins.
+        https://trac.edgewall.org/wiki/TracPlugins.
         
         Stick stuff like this in trac.ini::
         
